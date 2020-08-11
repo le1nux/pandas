@@ -2643,7 +2643,7 @@ class NDFrame(PandasObject, SelectionMixin, indexing.IndexingMixin):
 
     def to_pickle(
         self,
-        path,
+        path_or_buf,
         compression: Optional[str] = "infer",
         protocol: int = pickle.HIGHEST_PROTOCOL,
         storage_options: StorageOptions = None,
@@ -2653,8 +2653,8 @@ class NDFrame(PandasObject, SelectionMixin, indexing.IndexingMixin):
 
         Parameters
         ----------
-        path : str
-            File path where the pickled object will be stored.
+        path_or_buf : str or file handle
+            File path where the pickled object will be stored or file handle.
         compression : {'infer', 'gzip', 'bz2', 'zip', 'xz', None}, \
         default 'infer'
             A string representing the compression to use in the output file. By
@@ -2712,7 +2712,7 @@ class NDFrame(PandasObject, SelectionMixin, indexing.IndexingMixin):
 
         to_pickle(
             self,
-            path,
+            path_or_buf,
             compression=compression,
             protocol=protocol,
             storage_options=storage_options,
